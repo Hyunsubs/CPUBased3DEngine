@@ -4,10 +4,39 @@
     <Filter Include="main">
       <UniqueIdentifier>{22f4e183-071f-4718-a497-c5b3e8787587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Engine">
+      <UniqueIdentifier>{8c02b2ca-58de-4f4c-a6b5-b3df3ab380d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreCompiled">
+      <UniqueIdentifier>{2dbb1301-9582-4a9a-9ab5-8ad4bb912397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="0. Headers">
+      <UniqueIdentifier>{08520bd8-46d8-4f67-ab2e-51d0d0649ab1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>1. Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameEngine.h">
+      <Filter>1. Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>PreCompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>0. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>0. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>0. Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

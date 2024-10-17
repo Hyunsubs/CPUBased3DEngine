@@ -1,8 +1,24 @@
+#include "pch.h"
 #include <stdio.h>
 
-int main()
+#include "GameEngine.h"
+
+bool is_running = false;
+
+int main(int argc, char* args[])
 {
-	printf("Hello, World!\n");
-	getchar();
+	if (is_running = GameEngine::GetInst()->Init())
+	{
+		std::cout << "Initilize Successed" << std::endl;
+	}
+
+	while (is_running)
+	{
+		// process_input()
+		// update()
+		// render()
+	}
+
+
 	return 0;
 }
