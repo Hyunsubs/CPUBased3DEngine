@@ -14,9 +14,9 @@ int main(int argc, char* args[])
 
 	while (is_running)
 	{
-		// process_input()
-		// update()
-		// render()
+		GameEngine::GetInst()->ProcessInput();
+		GameEngine::GetInst()->Update();
+		GameEngine::GetInst()->Render();
 	}
 
 

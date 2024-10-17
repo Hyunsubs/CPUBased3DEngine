@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "GameEngine.h"
 
+COLOR GameEngine::color_buffers[WINDOW_WIDTH * WINDOW_HEIGHT];
+
 GameEngine::GameEngine()
 {
 }
@@ -42,6 +44,10 @@ bool GameEngine::Init()
 
 void GameEngine::ProcessInput()
 {
+	SDL_Event event;
+	SDL_PollEvent(&event);
+	SDLEventCheck(event);
+
 }
 
 void GameEngine::Update()
@@ -50,4 +56,40 @@ void GameEngine::Update()
 
 void GameEngine::Render()
 {
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+	// Render Something
+
+
+
+	SDL_RenderPresent(renderer);
 }
+
+void GameEngine::ClearColor()
+{
+	for (int i = 0; i < WINDOW_WIDTH * WINDOW_HEIGHT; i++)
+	{
+		color_buffers[i] = 0;
+	}
+}
+
+void GameEngine::SDLEventCheck(SDL_Event& event)
+{
+	extern bool is_running;
+	switch (event.type)
+	{
+	case SDL_QUIT:
+		is_running = false;
+		break;
+	case SDL_KEYDOWN:
+		if (event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			is_running = false;
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
