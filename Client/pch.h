@@ -16,5 +16,5 @@
 
 // 0.Headers
 #include "define.h"
-#include "singleton.h"
 #include "struct.h"
+#include "singleton.h"

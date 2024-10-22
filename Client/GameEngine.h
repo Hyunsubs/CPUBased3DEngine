@@ -8,7 +8,7 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
-	static COLOR color_buffers[WINDOW_WIDTH * WINDOW_HEIGHT];
+	COLOR* color_buf[WINDOW_WIDTH * WINDOW_HEIGHT];
 
 public:
 	bool Init();
@@ -25,6 +25,7 @@ private:
 
 public:
 	SDL_Window* GetSDLWindow() { return window; }
+	SDL_Renderer* GetSDLRenderer() { return renderer; }
 
 };
 

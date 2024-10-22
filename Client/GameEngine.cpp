@@ -1,18 +1,32 @@
 #include "pch.h"
 #include "GameEngine.h"
 
-COLOR GameEngine::color_buffers[WINDOW_WIDTH * WINDOW_HEIGHT];
 
 GameEngine::GameEngine()
+	: renderer(nullptr)
+	, window(nullptr)
 {
 }
 
 GameEngine::~GameEngine()
 {
+	if (color_buf != nullptr)
+	{
+		for (int i = 0; i < WINDOW_WIDTH * WINDOW_HEIGHT; i++)
+		{
+			delete(color_buf[i]);
+			color_buf[i] = nullptr;
+		}
+	}
 }
 
 bool GameEngine::Init()
 {
+	for (int i = 0; i < WINDOW_WIDTH * WINDOW_HEIGHT; i++)
+	{
+		color_buf[i] = new COLOR;
+	}
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
 		std::cout << stderr << ", " << "SDL 초기화 실패" << std::endl;
@@ -69,7 +83,7 @@ void GameEngine::ClearColor()
 {
 	for (int i = 0; i < WINDOW_WIDTH * WINDOW_HEIGHT; i++)
 	{
-		color_buffers[i] = 0;
+		color_buf[i]->color_buffer = 0;
 	}
 }
 
