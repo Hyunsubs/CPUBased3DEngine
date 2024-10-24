@@ -31,7 +31,7 @@ bool GameEngine::Init()
 	// 전체화면용 현재 모니터의 크기 알아내기
 	SDL_GetCurrentDisplayMode(0, &display_mode);
 
-	color_buf = new uint32[display_mode.w * display_mode.h];
+	color_buf = new COLOR[display_mode.w * display_mode.h];
 
 	// SDL 윈도우 만들기
 	window = SDL_CreateWindow("3D Engine", 
@@ -78,15 +78,15 @@ void GameEngine::Render()
 {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
-	ClearColor(0xFFFFFF00);
+	ClearColor(0xFFFFFFFF);
 
-	// Render Something
+	// Grid Rendering
 	for (int i = 0; i < display_mode.w; i++)
 	{
 		for (int j = 0; j < display_mode.h; j++)
 		{
 			if (i % ((int)(ratio * 50)) == 0 || j % (1 * 50) == 0)
-				color_buf[display_mode.w * j + i] = 0xFFFF0000;
+				color_buf[display_mode.w * j + i] = 0xFF000000;
 		}
 	}
 

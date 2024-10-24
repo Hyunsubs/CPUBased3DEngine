@@ -10,7 +10,7 @@ private:
 	SDL_Texture* render_target_texture;
 	SDL_DisplayMode display_mode;
 
-	uint32* color_buf;
+	COLOR* color_buf;
 
 	float ratio;
 
