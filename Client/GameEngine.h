@@ -7,8 +7,12 @@ class GameEngine :
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	SDL_Texture* render_target_texture;
+	SDL_DisplayMode display_mode;
 
-	COLOR* color_buf[WINDOW_WIDTH * WINDOW_HEIGHT];
+	uint32* color_buf;
+
+	float ratio;
 
 public:
 	bool Init();
@@ -17,11 +21,13 @@ public:
 	void Render();
 
 public:
-	void ClearColor();
+	void ClearColor(uint32 color);
 
 
 private:
 	void SDLEventCheck(SDL_Event& event);
+	void CreateTexture();
+	void CopyColorBuffer();
 
 public:
 	SDL_Window* GetSDLWindow() { return window; }
