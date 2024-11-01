@@ -13,13 +13,13 @@
     <Filter Include="02. Display">
       <UniqueIdentifier>{5b320b44-f533-482d-b5ef-4b4d41a50424}</UniqueIdentifier>
     </Filter>
-    <Filter Include="main">
+    <Filter Include="Main">
       <UniqueIdentifier>{22f4e183-071f-4718-a497-c5b3e8787587}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>main</Filter>
+      <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="GameEngine.cpp">
       <Filter>1. Engine</Filter>

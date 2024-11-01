@@ -22,9 +22,11 @@ public:
 
 	void ClearColor(uint32 color);
 	void DrawRect(int x, int y, int width, int height, uint32 color);
+	void DrawPixel(int x, int y, uint32 color);
 	void CreateTexture();
 	void CopyColorBuffer();
-
+	
+	COLOR* GetColorBuffer() { return color_buf; }
 	
 public:
 	SDL_Window* GetSDLWindow() { return window; }

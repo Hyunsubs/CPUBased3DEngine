@@ -39,15 +39,19 @@ void GameEngine::ProcessInput()
 void GameEngine::Update()
 {
 	// 입력 외 delta time 등등 업데이트
-
+	ProcessInput();
 
 }
 
 void GameEngine::Render()
 {
 	Display::GetInst()->Render();
-	// 게임 레벨 Render
 
+	// Content Rendering
+
+
+	Display::GetInst()->CopyColorBuffer();
+	SDL_RenderPresent(Display::GetInst()->GetSDLRenderer()); // 화면에 출력
 }
 
 

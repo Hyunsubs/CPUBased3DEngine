@@ -31,3 +31,23 @@ template<typename T>
 
 
 };
+
+struct Vec2
+{
+	float x;
+	float y;
+};
+
+struct Vec3
+{
+	union {
+		struct {
+			float x, y, z;
+		};
+		struct {
+			float r, g, b;
+		};
+	};
+
+	Vec3(float x, float y, float z) : x(x), y(y), z(z) {}
+};

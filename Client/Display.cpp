@@ -59,21 +59,7 @@ void Display::Render()
 	SDL_RenderClear(renderer);
 	ClearColor(0xFFFFFFFF);
 
-	// Actual Content Rendering 여기가 분리돼야 함
-	DrawRect(150, 150, 300, 300, 0xFFFF0000);
-	// Grid Rendering
-	for (int i = 0; i < display_mode.w; i++)
-	{
-		for (int j = 0; j < display_mode.h; j++)
-		{
-			if (i % ((int)(ratio * 50)) == 0 || j % (1 * 50) == 0)
-				color_buf[display_mode.w * j + i] = 0xFF000000;
-		}
-	}
 
-
-	CopyColorBuffer();
-	SDL_RenderPresent(renderer); // 화면에 출력
 }
 
 void Display::ClearColor(uint32 color)
@@ -101,6 +87,12 @@ void Display::DrawRect(int x, int y, int width, int height, uint32 color)
 			color_buf[target_idx] = color;
 		}
 	}
+}
+
+void Display::DrawPixel(int x, int y, uint32 color)
+{
+	if (x < display_mode.w && y < display_mode.h)
+		color_buf[display_mode.w * y + x] = color;
 }
 
 void Display::CreateTexture()
