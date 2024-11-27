@@ -1,51 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="1. Engine">
-      <UniqueIdentifier>{8c02b2ca-58de-4f4c-a6b5-b3df3ab380d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PreCompiled">
-      <UniqueIdentifier>{2dbb1301-9582-4a9a-9ab5-8ad4bb912397}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="0. Headers">
-      <UniqueIdentifier>{08520bd8-46d8-4f67-ab2e-51d0d0649ab1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Display">
-      <UniqueIdentifier>{5b320b44-f533-482d-b5ef-4b4d41a50424}</UniqueIdentifier>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{fc5667c4-9636-4029-b894-dfdd007fab07}</UniqueIdentifier>
     </Filter>
     <Filter Include="Main">
-      <UniqueIdentifier>{22f4e183-071f-4718-a497-c5b3e8787587}</UniqueIdentifier>
+      <UniqueIdentifier>{2d4479b6-fed3-4ad0-bd8b-2387d7fa58d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDL">
+      <UniqueIdentifier>{f2c5356c-d7b1-48cb-8561-f7ceb3cb953c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Meshes">
+      <UniqueIdentifier>{adefa5db-4a8e-4bc8-a2ee-63019572a7c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="array.c">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngine.cpp">
-      <Filter>1. Engine</Filter>
+    <ClCompile Include="display.c">
+      <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>02. Display</Filter>
+    <ClCompile Include="vector.c">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.c">
+      <Filter>Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.c">
+      <Filter>Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameEngine.h">
-      <Filter>1. Engine</Filter>
+    <ClInclude Include="array.h">
+      <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>PreCompiled</Filter>
+    <ClInclude Include="vector.h">
+      <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="define.h">
-      <Filter>0. Headers</Filter>
+    <ClInclude Include="mesh.h">
+      <Filter>Meshes</Filter>
     </ClInclude>
-    <ClInclude Include="struct.h">
-      <Filter>0. Headers</Filter>
+    <ClInclude Include="triangle.h">
+      <Filter>Meshes</Filter>
     </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>0. Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>02. Display</Filter>
+    <ClInclude Include="display.h">
+      <Filter>SDL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
