@@ -3,7 +3,6 @@
 
 #include "vector.h"
 #include "triangle.h"
-#include "string.h"
 
 #define N_CUBE_VERTICES 8
 #define N_CUBE_FACES (6 * 2) // 6 cube faces, 2 triangles per face
