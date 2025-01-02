@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{fc5667c4-9636-4029-b894-dfdd007fab07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{2d4479b6-fed3-4ad0-bd8b-2387d7fa58d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDL">
+      <UniqueIdentifier>{f2c5356c-d7b1-48cb-8561-f7ceb3cb953c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Meshes">
+      <UniqueIdentifier>{adefa5db-4a8e-4bc8-a2ee-63019572a7c4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="array.c">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="display.c">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.c">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.c">
+      <Filter>Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.c">
+      <Filter>Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.c">
+      <Filter>Headers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="array.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="triangle.h">
+      <Filter>Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
