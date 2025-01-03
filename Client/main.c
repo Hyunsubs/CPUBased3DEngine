@@ -104,18 +104,26 @@ void update(void) {
     triangles_to_render = NULL;
 
     // 메쉬 크기 회전 이동 변경
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.01;
-    mesh.rotation.z += 0.01;
+    mesh.rotation.x += 0.01f;
+    mesh.rotation.y += 0.01f;
+    mesh.rotation.z += 0.02f;
 
-    mesh.scale.x += 0.002;
-    mesh.scale.y += 0.001;
-    mesh.scale.z += 0.0005;
+    mesh.scale.x = 0.3f;
+    mesh.scale.y = 0.3f;
+    mesh.scale.z = 0.5f;
 
-    mesh.translation.x += 0.01;
+    // 정점을 카메라 위치에서 5만큼 떨어뜨려놓기
+    mesh.translation.z = 5.f;
 
-    // 크기 행렬 만들어서 메쉬 정점에 곱하기
+
+
+    // SRT 순서로 곱하기
     mat4_t scale_matrix = mat4_make_scale(mesh.scale.x, mesh.scale.y, mesh.scale.z);
+    mat4_t translation_matrix = mat4_make_translation(mesh.translation.x, mesh.translation.y, mesh.translation.z);
+    mat4_t rotation_matrix_x = mat4_make_rotation_x(mesh.rotation.x);
+    mat4_t rotation_matrix_y = mat4_make_rotation_y(mesh.rotation.y);
+    mat4_t rotation_matrix_z = mat4_make_rotation_z(mesh.rotation.z);
+
 
     // 메쉬의 모든 면을 구성하는 삼각형 루프
     int num_faces = array_length(mesh.faces);
@@ -135,11 +143,12 @@ void update(void) {
 
             // 행렬을 사용해서 기존 정점의 크기를 바꾸기
             // Matrix Multiplication
-            transformed_vertex = mat4_mul_vec4(scale_matrix, transformed_vertex);
+            mat4_t world_matrix = mat4_identity();
+            // world = scale * rotation * translation
+            // world_matrix = mat4_mul_mat4();
 
-            
-            // Translate the vertex away from the camera
-            transformed_vertex.z += 5;
+            // 기존 로컬 벡터에서 월드 행렬 곱하기
+            transformed_vertex = mat4_mul_vec4(world_matrix, transformed_vertex);
 
             // Save transformed vertex in the array of transformed vertices
             transformed_vertices[j] = transformed_vertex;
