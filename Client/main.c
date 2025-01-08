@@ -106,16 +106,13 @@ void update(void) {
     // 메쉬 크기 회전 이동 변경
     mesh.rotation.x += 0.01f;
     mesh.rotation.y += 0.01f;
-    mesh.rotation.z += 0.02f;
 
-    mesh.scale.x = 0.3f;
-    mesh.scale.y = 0.3f;
-    mesh.scale.z = 0.5f;
+    mesh.scale.x = 1.f;
+    mesh.scale.y = 1.f;
+    mesh.scale.z = 1.f;
 
     // 정점을 카메라 위치에서 5만큼 떨어뜨려놓기
     mesh.translation.z = 5.f;
-
-
 
     // SRT 순서로 곱하기
     mat4_t scale_matrix = mat4_make_scale(mesh.scale.x, mesh.scale.y, mesh.scale.z);
@@ -144,8 +141,13 @@ void update(void) {
             // 행렬을 사용해서 기존 정점의 크기를 바꾸기
             // Matrix Multiplication
             mat4_t world_matrix = mat4_identity();
+
             // world = scale * rotation * translation
-            // world_matrix = mat4_mul_mat4();
+            world_matrix = mat4_mul_mat4(scale_matrix, world_matrix);
+            world_matrix = mat4_mul_mat4(rotation_matrix_z, world_matrix);
+            world_matrix = mat4_mul_mat4(rotation_matrix_y, world_matrix);
+            world_matrix = mat4_mul_mat4(rotation_matrix_x, world_matrix);
+            world_matrix = mat4_mul_mat4(translation_matrix, world_matrix);
 
             // 기존 로컬 벡터에서 월드 행렬 곱하기
             transformed_vertex = mat4_mul_vec4(world_matrix, transformed_vertex);
